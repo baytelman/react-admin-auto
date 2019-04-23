@@ -237,7 +237,7 @@ const attributeToInput = (input: AutoAdminAttribute) => {
     case Boolean:
       return <BooleanInput label={input.label} source={input.attribute} options={input.fieldOptions} />;
     case Date:
-      return input.fieldOptions && input.fieldOptions.showtime ? (
+      return input.fieldOptions && input.fieldOptions.showTime ? (
         <DateTimeInput label={input.label} source={input.attribute} options={input.fieldOptions} />
       ) : (
         <DateInput label={input.label} source={input.attribute} options={input.fieldOptions} />
