@@ -14,6 +14,7 @@ import {
   Datagrid,
   DateField,
   DateInput,
+  DateTimeInput,
   Edit,
   Filter,
   FormTab,
@@ -236,7 +237,11 @@ const attributeToInput = (input: AutoAdminAttribute) => {
     case Boolean:
       return <BooleanInput label={input.label} source={input.attribute} options={input.fieldOptions} />;
     case Date:
-      return <DateInput label={input.label} source={input.attribute} options={input.fieldOptions} />;
+      return input.fieldOptions && input.fieldOptions.showtime ? (
+        <DateTimeInput label={input.label} source={input.attribute} options={input.fieldOptions} />
+      ) : (
+        <DateInput label={input.label} source={input.attribute} options={input.fieldOptions} />
+      );
   }
   if (isEnum(input.type)) {
     return (
